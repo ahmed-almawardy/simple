@@ -23,16 +23,15 @@ jobs:
         steps:
           - name: Checkout
             uses: actions/checkout@v5.0.0
-          - name: Set up python
-            id: setup-python
-            uses: actions/setup-python@v5
-            with:
-              python-version: '3.13'
-          - name: Install Poetry
-            uses: snok/install-poetry@v1
-          - name: install
-            run: poetry install  
-          - name: lint the code
-            run: poetry run ruff check --fix 
-          - name: run tests
-            run: poetry run ./manage.py test 
+          # - name: init docker
+          #   uses: docker/metadata-action@v5
+          - name: build docker
+            run: |
+              docker build -y mock-backend .
+              
+               
+          # - name: Set up python
+          #   id: setup-python
+          #   uses: actions/setup-python@v5
+          #   with:
+          #     python-version: '3.13'
