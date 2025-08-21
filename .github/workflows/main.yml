@@ -18,3 +18,5 @@ jobs:
               run: |
                 echo "The Repo ${{github.repository}} has following files:"
                 tree
+                ::debug:: This is debug message
+                
