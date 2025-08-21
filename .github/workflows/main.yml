@@ -30,5 +30,7 @@ jobs:
               python-version: '3.13'
           - name: Install Poetry
             uses: snok/install-poetry@v1
+          - name: install
+            run: poetry install  
           - name: run tests
             run: poetry run ./manage.py test 
