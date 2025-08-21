@@ -14,21 +14,6 @@ jobs:
           - name: build docker
             run: |
               docker compose build --no-cache
-
-    test:
-      runs-on: ubuntu-22.04
-      needs: [build]
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v5
-        - name: init pytest
-          uses: pavelzw/pytest-action@v2
-          with:
-            verbose: true
-            emoji: true
-            job-summary: true
-            custom-arguments: '-q'
-            click-to-expand: true
-            report-title: 'Test Report'
-        - name: pytest suite
-          run: pytest
+          - name: tests
+            run: |
+              pytest
