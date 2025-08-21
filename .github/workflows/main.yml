@@ -6,29 +6,16 @@ on:
             - main
 
 jobs:
-    build-job:
-        runs-on: ubuntu-22.04
-        steps:
-            - run: echo 'Hello world'
-            - name: Checkout to code
-              uses: actions/checkout@v5.0.0
-            - name: lint workflow yml
-              uses: devops-actions/actionlint@v0.1.2
-            - name: List Files
-              run: |
-                echo "The Repo ${{github.repository}} has following files:"
-                tree
-    test:
+    build:
         runs-on: ubuntu-22.04
         steps:
           - name: Checkout
             uses: actions/checkout@v5.0.0
-          # - name: init docker
-          #   uses: docker/metadata-action@v5
           - name: build docker
             run: |
               docker compose build --no-cache
-               
+          # - name: init docker
+          #   uses: docker/metadata-action@v5
           # - name: Set up python
           #   id: setup-python
           #   uses: actions/setup-python@v5
