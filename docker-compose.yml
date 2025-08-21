@@ -1,10 +1,11 @@
-version: '3'
-
 services:
   backend:
-    build:
-      context: .
-      tags:
-        - mock-backend
+    build: .
+    volumes:
+      - ./:/app/
     command: |
-      python manage.py test
+      gunicorn simple.wsgi:application 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
