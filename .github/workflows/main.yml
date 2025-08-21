@@ -32,5 +32,7 @@ jobs:
             uses: snok/install-poetry@v1
           - name: install
             run: poetry install  
+          - name: lint the code
+            run: poetry run ruff check --fix 
           - name: run tests
             run: poetry run ./manage.py test 
