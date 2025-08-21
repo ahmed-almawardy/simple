@@ -13,7 +13,7 @@ jobs:
             - name: Checkout to code
               uses: actions/checkout@v5.0.0
             - name: lint workflow yml
-              uses: devops-actions/actionlint@v2.0.1
+              uses: devops-actions/actionlint@v0.1.2
             - name: List Files
               run: |
                 echo "The Repo ${{github.repository}} has following files:"
