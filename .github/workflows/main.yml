@@ -18,5 +18,10 @@ jobs:
               run: |
                 echo "The Repo ${{github.repository}} has following files:"
                 tree
-                ::debug:: This is debug message
-                
+    test:
+        runs-on: ubuntu-22.04
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v5.0.0
+          - name: run tests
+            run: poetry run ./manage.py test 
