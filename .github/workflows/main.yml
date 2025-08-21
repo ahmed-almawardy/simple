@@ -4,7 +4,7 @@ on:
     push:
         branches:
             - main
-            
+
 jobs:
     build-job:
         runs-on: ubuntu-22.04
@@ -12,6 +12,8 @@ jobs:
             - run: echo 'Hello world'
             - name: Checkout to code
               uses: actions/checkout@v5.0.0
+            - name: lint workflow yml
+              uses: devops-actions/actionlint@v2.0.1
             - name: List Files
               run: |
                 echo "The Repo ${{github.repository}} has following files:"
