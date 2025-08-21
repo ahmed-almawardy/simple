@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      tags:
+        - mock-backend
+    command: |
+      python manage.py test
