@@ -18,8 +18,8 @@ jobs:
             run: |
               docker compose run --rm -d --remove-orphans --no-deps --name bk_con backend
               docker compose exec backend ./manage.py test
-              docker stop bk_con
           - name: lint python code
             run: |
-             ruff check --fix
-             ruff foramt -v 
+             docker compose exec backend ruff check --fix
+             docker compose exec backend ruff foramt -v 
+             docker stop bk_con
