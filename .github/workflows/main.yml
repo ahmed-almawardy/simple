@@ -16,6 +16,6 @@ jobs:
               docker compose build --no-cache
           - name: tests
             run: |
-              docker compose run --rm -d --remove-orphans backend
-              docker compose exec backend pytest
-              docker compose down
+              docker compose run --rm -d --remove-orphans --no-deps --name bk_con backend
+              docker compose exec backend ./manage.py test
+              docker stop bk_con
