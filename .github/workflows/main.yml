@@ -7,6 +7,10 @@ on:
 
 jobs:
     build-test-deploy:
+        env:
+          USERN: ${{env.DOCKER_USERNAME}}
+          USERN1: ${{github.env.DOCKER_USERNAME}}
+
         runs-on: ubuntu-22.04
         steps:
           - name: Checkout
@@ -25,5 +29,6 @@ jobs:
              docker stop bk_con
           - name: push to docker 
             run: |
-              echo docker login -u '${{ github.env.DOCKER_USERNAME }}'
+              echo docker login -u '${{ env.USERN }}'
+              echo docker login -u '${{ env.USERN1 }}'
 
