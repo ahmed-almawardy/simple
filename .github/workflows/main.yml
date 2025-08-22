@@ -28,6 +28,9 @@ jobs:
              docker stop bk_con
           - name: push to docker 
             run: |
-              echo docker login -u '${{ env.USERN }}'
-              echo docker login -u '${{ env.USERN1 }}'
+              echo docker login -u '$USERN1'
+              echo docker login -u $USERN1
+              echo docker login -u ${{vars.DOCKER_USERNAME}}
+              echo docker login -u '${{vars.DOCKER_USERNAME}}'
+              echo docker login -u "${{vars.DOCKER_USERNAME}}"
 
