@@ -6,7 +6,7 @@ on:
             - main
 
 jobs:
-    build:
+    build-test-deploy:
         runs-on: ubuntu-22.04
         steps:
           - name: Checkout
@@ -23,3 +23,8 @@ jobs:
              docker compose exec backend ruff check --fix
              docker compose exec backend ruff format -v
              docker stop bk_con
+          - name: push to docker 
+            run: |
+              echo "docker login -u '${{env.DOCKER_USERNAME}}'"
+              echo docker login -u '${{env.DOCKER_USERNAME}}'
+
