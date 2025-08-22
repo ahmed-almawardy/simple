@@ -8,7 +8,6 @@ on:
 jobs:
     build-test-deploy:
         env:
-          USERN: ${{env.DOCKER_USERNAME}}
           USERN1: ${{github.env.DOCKER_USERNAME}}
 
         runs-on: ubuntu-22.04
