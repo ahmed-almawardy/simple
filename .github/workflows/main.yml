@@ -21,5 +21,5 @@ jobs:
           - name: lint python code
             run: |
              docker compose exec backend ruff check --fix
-             docker compose exec backend ruff foramt -v 
+             docker compose exec backend ruff format -v
              docker stop bk_con
