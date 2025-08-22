@@ -30,6 +30,9 @@ jobs:
             run: |
               echo docker login -u '$USERN1'
               echo docker login -u $USERN1
+              echo docker login -u ${{USERN1}}
+              echo docker login -u ${{env.USERN1}}
+              echo docker login -u '${{env.USERN1}}'
               echo docker login -u ${{vars.DOCKER_USERNAME}}
               echo docker login -u '${{vars.DOCKER_USERNAME}}'
               echo docker login -u "${{vars.DOCKER_USERNAME}}"
