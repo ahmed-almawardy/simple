@@ -10,6 +10,7 @@ ENV UV_PROJECT_ENVIRONMENT="/usr/local/"
 
 RUN uv add django
 RUN uv add gunicorn
+RUN uv add ruff
 
 
 # RUN apk add poetry
