@@ -8,8 +8,9 @@ on:
 jobs:
     build-test-deploy:
         env:
-          USERN1: ${{ secrets.DK_USERNAME }}
-
+          REMOTE_USERNAME: ${{secrets.DDK_USERNAME}}
+          REMOTE_PASS: ${{secrets.DDK_PASSWORD}}
+          
         runs-on: ubuntu-22.04
         steps:
           - name: Checkout
@@ -28,6 +29,4 @@ jobs:
              docker stop bk_con
           - name: push to docker 
             run: |
-              echo docker login -u $USERN1
-              echo $USERN1
-              echo ${{secrets.DDK_USERNAME}}
+              docker login -u$REMOTE_USERNAME -p$REMOTE_PASS 
