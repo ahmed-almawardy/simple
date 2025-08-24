@@ -17,7 +17,7 @@ jobs:
             uses: actions/checkout@v5.0.0
           - name: build docker
             run: |
-              docker compose build --no-cache
+              docker build --no-cache -t $REMOTE_USERNAME/ere1223:v0.0.1
           - name: tests
             run: |
               docker compose run --rm -d --remove-orphans --no-deps --name bk_con backend
@@ -29,4 +29,5 @@ jobs:
              docker stop bk_con
           - name: push to docker 
             run: |
-              docker login -u$REMOTE_USERNAME -p$REMOTE_PASS 
+              docker login -u$REMOTE_USERNAME -p$REMOTE_PASS
+              docker push $REMOTE_USERNAME/ere1223:v0.0.1
