@@ -29,3 +29,5 @@ jobs:
           - name: push to docker 
             run: |
               echo docker login -u $USERN1
+              echo $USERN1
+              echo ${{secrets.DK_USERNAME}}
