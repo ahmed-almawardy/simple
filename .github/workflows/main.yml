@@ -30,4 +30,4 @@ jobs:
             run: |
               echo docker login -u $USERN1
               echo $USERN1
-              echo ${{secrets.DK_USERNAME}}
+              echo ${{secrets.DDK_USERNAME}}
