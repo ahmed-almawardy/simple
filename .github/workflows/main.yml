@@ -8,7 +8,7 @@ on:
 jobs:
     build-test-deploy:
         env:
-          USERN1: ${{ vars.DOCKER_USERNAME }}
+          USERN1: ${{ secrets.DK_USERNAME }}
 
         runs-on: ubuntu-22.04
         steps:
@@ -28,4 +28,4 @@ jobs:
              docker stop bk_con
           - name: push to docker 
             run: |
-              echo docker login -u ${{ secrets.DK_USERNAME }}
+              echo docker login -u $USERN1
